@@ -1,0 +1,34 @@
+Steps to work with SQLite:
+
+1) Download and install SQLite as per system & VS configuration from: 
+http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki
+
+For my version of Visual Studio, I used:
+- Setups for 64-bit Windows (.NET Framework 4.5)
+ 	sqlite-netFx45-setup-bundle-x64-2012-1.0.96.0.exe 
+
+Note: It doesn't work if the version is not correct.
+
+2) Download and install SQLite DB Browser:
+http://sqlitebrowser.org/ 
+or
+http://www.heise.de/download/db-browser-for-sqlite-375a3436a11b671615dd66f7aad329bb-1432481591-2641685.html
+
+3) From the attached SQL File, IMPORT the database into the SQLite DB Browser. 
+
+4) In Visual Studio, make sure the project properties are as follows:
+
+In the Build page, set the Configuration to All Configurations.
+Under General, set Platform target from Any CPU target to x64.
+
+5) Under Project Reference, import System.Data.SQLite.dll from the installed SQL folder.
+Path looks like : C:\Program Files\System.Data.SQLite\2012\bin
+
+
+Important: 
+- SQLite does not have a separate Boolean storage class. Instead, Boolean values are stored as integers 0 (false) and 1 (true).
+http://stackoverflow.com/questions/24604817/how-to-add-a-boolean-column-in-android-sqlite
+
+
+- SQLite also doesn't directly have date and time datatypes, they can stored as TEXT instead and retrieved as follows:
+http://www.sqlite.org/lang_datefunc.html
